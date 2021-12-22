@@ -7,7 +7,7 @@ const app = Vue.createApp({
     };
   },
   methods: {
-    async getUser() {
+    async getGames() {
       const response = await fetch(
         "https://betwill.com/api/game/getgametemplates/1/1/1"
       );
@@ -34,12 +34,12 @@ const app = Vue.createApp({
     },
     clickThis() {
       this.counter += 60;
-      this.getUser();
+      this.getGames();
       console.log(this.counter);
     },
   },
   mounted() {
-    this.getUser();
+    this.getGames();
   },
 });
 
