@@ -1,8 +1,9 @@
 const app = Vue.createApp({
   data() {
     return {
-      Thisimages: [],
+      apiData: [],
       orders: [],
+      counter: 60,
     };
   },
   methods: {
@@ -11,15 +12,30 @@ const app = Vue.createApp({
         "https://betwill.com/api/game/getgametemplates/1/1/1"
       );
       const data = await response.json();
-      this.orders = data.GameTemplates.sort(
+      this.apiData = data;
+      const gameTemplates = data.GameTemplates.sort(
         (a, b) => a.DefaultOrdering - b.DefaultOrdering
       );
-      // this.Thisimages = data.GameTemplateImages.slice(0, 10);
-      this.Thisimages = data.GameTemplateImages.sort(
-        (a, b) => this.orders.ID(a) - this.orders.ID(b)
-      );
-
-      console.log(this.orders);
+      this.orders = gameTemplates.slice(0, this.counter).map((item) => ({
+        ...item,
+        image: this.getImageUrl(item.ID),
+        name: this.getGameName(item.ID),
+      }));
+    },
+    getImageUrl(id) {
+      return this.apiData.GameTemplateImages.find(
+        (e) => e.GameTemplateId === id
+      ).CdnUrl;
+    },
+    getGameName(id) {
+      return this.apiData.GameTemplateNameTranslations.find(
+        (e) => e.GameTemplateId === id
+      ).Value;
+    },
+    clickThis() {
+      this.counter += 60;
+      this.getUser();
+      console.log(this.counter);
     },
   },
   mounted() {

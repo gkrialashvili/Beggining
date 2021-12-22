@@ -11,15 +11,11 @@
 
 <body>
     <div id="app">
-        <img v-for="Thisimage in Thisimages" :class="gender"
-            v-bind:src="'https://static.inpcdn.com/' + Thisimage.CdnUrl" :alt="`${Thisimage.CdnUrl}`">
-        <h1 v-for="Thisimages in Thisimage">{{Thisimage}} {{Thisimage}}</h1>
-        <h3>Email: {{email}}</h3>
-        <h3>Gender: {{gender}}</h3>
-        <button v-on:click="getUser()" :class="gender">Ger Random User</button>
+        <img v-for="order in orders" v-bind:src="'https://static.inpcdn.com/' + order.image" :alt="`${order.image}`">
+        <button v-for="" v-on:click="clickThis()">Ger Random User</button>
     </div>
 
-    <script src="https://unpkg.com/vue@next"></script>
+    <script src=" https://unpkg.com/vue@next"></script>
     <script src="main.js"></script>
 </body>
 
