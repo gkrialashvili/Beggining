@@ -1,26 +1,25 @@
 const app = Vue.createApp({
   data() {
     return {
-      firstName: "Gio",
-      lastName: "Doe",
-      gender: "male",
-      email: "Doe@gmail.com",
-      picture: "https://randomuser.me/api/portraits/men/1.jpg",
+      Thisimages: [],
+      orders: [],
     };
   },
   methods: {
     async getUser() {
-      const res = await fetch("https://randomuser.me/api");
-      const { results } = await res.json();
-      const user = results[0];
+      const response = await fetch(
+        "https://betwill.com/api/game/getgametemplates/1/1/1"
+      );
+      const data = await response.json();
+      this.orders = data.GameTemplates.sort(
+        (a, b) => a.DefaultOrdering - b.DefaultOrdering
+      );
+      // this.Thisimages = data.GameTemplateImages.slice(0, 10);
+      this.Thisimages = data.GameTemplateImages.sort(
+        (a, b) => this.orders.ID(a) - this.orders.ID(b)
+      );
 
-      console.log(user);
-
-      (this.firstName = user.name.first),
-        (this.lastName = user.name.last),
-        (this.gender = user["gender"]),
-        (this.email = user.email),
-        (this.picture = user.picture.large);
+      console.log(this.orders);
     },
   },
   mounted() {
