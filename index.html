@@ -3,19 +3,122 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random User Generator</title>
+    <meta http-equiv="X-UA-Compatible" section="IE=edge">
+    <meta name="viewport" section="width=device-width, initial-scale=1.0">
+    <title>Casino</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+        integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div id="app">
-        <img v-for="order in orders" v-bind:src="'https://static.inpcdn.com/' + order.image" :alt="`${order.image}`">
-        <button v-for="" v-on:click="clickThis()">Ger Random User</button>
+    <div id="app" class="main-container">
+        <header class="page-header">
+            <div class="header__navigation">
+                <img src="./assets/images/LOGO.png" alt="">
+                <div class="navigation__menu">
+                    <a class="navigation__menu__item" href="#">Sports</a>
+                    <a class="navigation__menu__item active" href="#">In-Play</a>
+                    <a class="navigation__menu__item" href="#">Casino </a>
+                    <a class="navigation__menu__item" href="#">Live Casino</a>
+                    <a class="navigation__menu__item" href="#">Virtual Sports</a>
+                </div>
+            </div>
+            <div class="header__navigation">
+                <div class="navigation__menu">
+                    <a href="#" class="auth-button" id="join">Join</a>
+                    <a href="#" class="auth-button" id="login">Log In</a>
+                </div>
+            </div>
+        </header>
+        <section class="owl-carousel owl-theme container">
+            <a class="item">
+                <img src="./assets/images/slider.png" alt="">
+            </a>
+            <a class="item">
+                <img src="./assets/images/slider.png" alt="">
+            </a>
+            <a class="item">
+                <img src="./assets/images/slider.png" alt="">
+            </a>
+            <a class="item">
+                <img src="./assets/images/slider.png" alt="">
+            </a>
+            <a class="item">
+                <img src="./assets/images/slider.png" alt="">
+            </a>
+        </section>
+        <section class="section-navigation container">
+            <div class="section-navigation__items top">
+                <span class="allGames">All Games({{dataLength}})</span>
+                <select class="provider-selector" v-model="selected">
+                    <option disabled value="">All Providers</option>
+                    <option>A</option>
+                    <option>B</option>
+                    <option>C</option>
+                </select>
+                <div class="search-container">
+                    <input v-on:keyup.enter="getGames()" class="searchInput" v-model="searchVal"
+                        placeholder="Search Games">
+                    <i v-on:click="getGames()" class="fas fa-search"></i>
+                </div>
+
+            </div>
+            <div class=" section-navigation__items bottom">
+                <div class="categories">
+                    <img class="category__image" src="./assets/images/1.png" alt="">
+                    <span class="active categories__text">Video <br> Slots</span>
+                </div>
+                <div class="categories">
+                    <img class="category__image" src="./assets/images/2.png" alt="">
+                    <span class="categories__text">Popular <br> Slots</span>
+                </div>
+                <div class="categories">
+                    <img class="category__image" src="./assets/images/3.png" alt="">
+                    <span class="categories__text">FAV</span>
+                </div>
+                <div class="categories">
+                    <img class="category__image" src="./assets/images/4.png" alt="">
+                    <span class="categories__text">New <br> Games</span>
+                </div>
+                <div class="categories">
+                    <img class="category__image" src="./assets/images/5.png" alt="">
+                    <span class="categories__text">Table <br> Games</span>
+                </div>
+                <div class="categories">
+                    <img class="category__image" src="./assets/images/6.png" alt="">
+                    <span class="categories__text">Jackpot <br> Games</span>
+                </div>
+                <div class="categories">
+                    <img class="category__image" src="./assets/images/7.png" alt="">
+                    <span class="categories__text">Video <br> Poker</span>
+                </div>
+                <div class="categories">
+                    <img class="category__image" src="./assets/images/8.png" alt="">
+                    <span class="categories__text">More</span>
+                </div>
+            </div>
+        </section>
+        <section class="container games-container">
+            <a class="games__item" href="#" v-for="order in orders" style="display: flex;">
+                <img v-bind:src="'https://static.inpcdn.com/' + order.image" :alt="`${order.image}`">
+
+            </a>
+        </section>
+        <button v-on:click="showMore()">SHOW MORE</button>
     </div>
 
     <script src=" https://unpkg.com/vue@next"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+        integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="main.js"></script>
 </body>
 

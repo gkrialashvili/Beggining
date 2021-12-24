@@ -8,11 +8,17 @@
 html,
 body {
   font-family: Arial, Helvetica, sans-serif;
+  background-color: #383838;
+  color: #fff;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
 }
 
 #app {
-  width: 400px;
-  height: 100vh;
+  width: 100%;
   margin: auto;
   text-align: center;
   display: -webkit-box;
@@ -36,23 +42,6 @@ h3 {
   font-weight: normal;
 }
 
-img {
-  border-radius: 50%;
-  border: 5px #333 solid;
-  margin-bottom: 1rem;
-}
-
-.male {
-  border-color: steelblue;
-  background-color: steelblue;
-}
-
-.female {
-  border-color: pink;
-  background-color: pink;
-  color: #333;
-}
-
 button {
   cursor: pointer;
   display: inline-block;
@@ -70,5 +59,293 @@ button:focus {
 button:hover {
   -webkit-transform: scale(0.98);
           transform: scale(0.98);
+}
+
+.main-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.page-header {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 20px;
+  min-height: 75px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #1c1c1c;
+}
+
+.header__navigation {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header__navigation img {
+  height: 30px;
+  margin-right: 20px;
+}
+
+.navigation__menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+  min-height: 75px;
+}
+
+.navigation__menu .navigation__menu__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  min-height: 75px;
+  font-size: 15px;
+  margin: 0 20px;
+}
+
+.navigation__menu .navigation__menu__item:hover,
+.navigation__menu .navigation__menu__item.active {
+  border-bottom: 3px solid #fff209;
+}
+
+.auth-button {
+  width: 72px;
+  min-height: 38px;
+  border-radius: 2px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0 5px;
+}
+
+#join {
+  background-color: rgba(255, 242, 9, 0.8);
+  color: #000;
+}
+
+#join:hover {
+  background-color: #fff209;
+}
+
+#login {
+  font-weight: bold;
+  opacity: 0.9;
+}
+
+#login:hover {
+  opacity: 1;
+}
+
+.swiper {
+  width: 600px;
+  height: 300px;
+}
+
+.container {
+  max-width: 1270px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.owl-prev {
+  width: 15px;
+  height: 100px;
+  position: absolute;
+  top: 25%;
+  margin-left: -20px;
+  display: block !important;
+  border: 0px solid black;
+}
+
+.owl-prev span {
+  font-size: 50px;
+}
+
+.owl-next {
+  width: 15px;
+  height: 100px;
+  position: absolute;
+  top: 25%;
+  right: -25px;
+  display: block !important;
+  border: 0px solid black;
+}
+
+.owl-next span {
+  font-size: 50px;
+}
+
+.owl-carousel {
+  margin-top: 20px;
+}
+
+.games-container {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.games__item {
+  margin-bottom: 20px;
+  margin: 10px 5px;
+}
+
+.section-navigation {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: 221px;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  width: 100%;
+}
+
+.section-navigation__items.top {
+  min-height: 75px;
+  border-bottom: 1px solid #9b9b9b;
+}
+
+.section-navigation__items.bottom {
+  min-height: 177px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.section-navigation__items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+.provider-selector {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  font-size: 20px;
+  margin: 0 15px;
+}
+
+.provider-selector option {
+  background-color: transparent;
+  border: none;
+  color: #000;
+}
+
+.allGames {
+  font-size: 20px;
+}
+
+.js-example-basic-single {
+  max-width: 300px;
+}
+
+.search-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.searchInput {
+  max-width: 200px;
+  height: 38px;
+  border: 1px solid #9b9b9b;
+  background-color: transparent;
+  padding: 0.375rem 0.75rem;
+  font-size: 17px;
+  color: #8b8b8b;
+}
+
+.fa-search {
+  position: absolute;
+  right: 5px;
+  cursor: pointer;
+  color: #8b8b8b;
+}
+
+.categories {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.categories:hover {
+  opacity: 1;
+}
+
+.category__image {
+  margin-bottom: 10px;
+}
+
+.categories__text.active {
+  color: #e7db12;
 }
 /*# sourceMappingURL=style.css.map */
