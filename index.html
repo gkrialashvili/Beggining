@@ -62,9 +62,9 @@
                     <option>C</option>
                 </select>
                 <div class="search-container">
-                    <input v-on:keyup.enter="getGames()" class="searchInput" v-model="searchVal"
+                    <input v-on:keyup="onFilterHandler" class="searchInput" v-model="searchVal"
                         placeholder="Search Games">
-                    <i v-on:click="getGames()" class="fas fa-search"></i>
+                    <i class="fas fa-search"></i>
                 </div>
 
             </div>
@@ -104,8 +104,8 @@
             </div>
         </section>
         <section class="container games-container">
-            <a class="games__item" href="#" v-for="order in orders" style="display: flex;">
-                <img v-bind:src="'https://static.inpcdn.com/' + order.image" :alt="`${order.image}`">
+            <a class="games__item" href="#" v-for="filteredGame in filteredGames" style="display: flex;">
+                <img v-bind:src="'https://static.inpcdn.com/' + filteredGame.image" :alt="`${filteredGame.image}`">
 
             </a>
         </section>

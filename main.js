@@ -3,6 +3,7 @@ const app = Vue.createApp({
     return {
       apiData: [],
       orders: [],
+      filteredGames: [],
       dataLength: 0,
       counter: 60,
       selected: "",
@@ -19,37 +20,42 @@ const app = Vue.createApp({
       const gameTemplates = data.GameTemplates.sort(
         (a, b) => a.DefaultOrdering - b.DefaultOrdering
       );
-      if (this.searchVal !== "")
-        this.orders = gameTemplates
-          .slice(0, this.counter)
-          .map((item) => ({
-            ...item,
-            image: this.getImageUrl(item.ID),
-            name: this.getGameName(item.ID),
-          }))
-          .filter((e) => e.name?.toLowerCase().includes(this.searchVal));
-      else
-        this.orders = gameTemplates.slice(0, this.counter).map((item) => ({
-          ...item,
-          image: this.getImageUrl(item.ID),
-          name: this.getGameName(item.ID),
-        }));
-      console.log(this.orders);
+      this.orders = gameTemplates.map((item) => ({
+        ...item,
+        image: this.getImageUrl(item.ID),
+        name: this.getGameName(item.ID),
+      }));
       this.dataLength = this.apiData.GameTemplates.length;
+
+      this.filterGames();
+    },
+    filterGames() {
+      this.filteredGames = this.orders
+        .filter((e) => e.name?.toLowerCase().includes(this.searchVal))
+        .slice(0, this.counter);
+      console.log(this.filteredGames);
+    },
+    onFilterHandler() {
+      this.counter = 60;
+      this.filterGames();
     },
     getImageUrl(id) {
-      return this.apiData.GameTemplateImages.find(
-        (e) => e.GameTemplateId === id
-      ).CdnUrl;
+      try {
+        return this.apiData.GameTemplateImages.find(
+          (e) => e.GameTemplateId === id
+        ).CdnUrl;
+      } catch (err) {}
     },
     getGameName(id) {
-      return this.apiData.GameTemplateNameTranslations.find(
-        (e) => e.GameTemplateId === id
-      ).Value;
+      try {
+        return this.apiData.GameTemplateNameTranslations.find(
+          (e) => e.GameTemplateId === id
+        ).Value;
+      } catch (err) {}
     },
     showMore() {
       this.counter += 60;
-      this.getGames();
+      this.filterGames();
       console.log(this.counter);
     },
   },
