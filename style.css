@@ -1,3 +1,13 @@
+@font-face {
+  font-family: "Poppins-Regular";
+  src: url("../assets/fonts/Poppins-Regular.woff2");
+}
+
+@font-face {
+  font-family: "Poppins-SemiBold";
+  src: url("../assets/fonts/Poppins-SemiBold.woff2");
+}
+
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -34,6 +44,7 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  font-family: "Poppins-Regular";
 }
 
 h1,
@@ -154,12 +165,13 @@ button:hover {
 }
 
 #join {
-  background-color: rgba(255, 242, 9, 0.8);
+  background-color: #fff209;
   color: #000;
 }
 
 #join:hover {
-  background-color: #fff209;
+  -webkit-filter: brightness(1.15);
+          filter: brightness(1.15);
 }
 
 #login {
@@ -229,6 +241,8 @@ button:hover {
 .games__item {
   margin-bottom: 20px;
   margin: 10px 5px;
+  width: 231px;
+  height: 187px;
 }
 
 .section-navigation {
@@ -248,7 +262,6 @@ button:hover {
 
 .section-navigation__items.top {
   min-height: 75px;
-  border-bottom: 1px solid #9b9b9b;
 }
 
 .section-navigation__items.bottom {
@@ -284,7 +297,17 @@ button:hover {
 }
 
 .allGames {
+  font-family: "Poppins-Regular";
   font-size: 20px;
+  border-bottom: 3px solid;
+  height: 74px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
 }
 
 .js-example-basic-single {

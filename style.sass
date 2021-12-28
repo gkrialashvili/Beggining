@@ -1,3 +1,14 @@
+@font-face
+    font-family: "Poppins-Regular"
+    src: url("../assets/fonts/Poppins-Regular.woff2"),
+
+@font-face
+    font-family: "Poppins-SemiBold"
+    src: url("../assets/fonts/Poppins-SemiBold.woff2"),
+
+$regular: "Poppins-Regular"
+$semiBold: "Poppins-Regular"
+
 *
     box-sizing: border-box
     margin: 0
@@ -20,6 +31,7 @@ a
     flex-direction: column
     justify-content: center
     align-items: center
+    font-family: $regular
 
 h1,
 h3
@@ -89,12 +101,12 @@ button:hover
     margin: 0 5px
 
 #join
-    background-color: rgba(255, 242, 9, 0.8)
+    background-color: rgba(255, 242, 9, 1)
     color: #000
 
 #join:hover
-    background-color: rgba(255, 242, 9, 1)
-
+    filter: brightness(1.15)
+ 
 #login
     font-weight: bold
     opacity: 0.9
@@ -142,6 +154,8 @@ button:hover
 .games__item
     margin-bottom: 20px
     margin: 10px 5px
+    width: 231px
+    height: 187px
 
 .section-navigation
     flex-direction: column
@@ -152,7 +166,6 @@ button:hover
 
 .section-navigation__items.top
     min-height: 75px
-    border-bottom: 1px solid #9b9b9b
 
 .section-navigation__items.bottom
     min-height: 177px
@@ -176,7 +189,13 @@ button:hover
         color: #000
 
 .allGames
+    font-family: $semiBold
     font-size: 20px
+    border-bottom: 3px solid
+    height: 74px
+    display: flex
+    align-items: center
+    cursor: pointer
 
 .js-example-basic-single
     max-width: 300px
